@@ -17,7 +17,8 @@ PRODUCT_PACKAGES += \
 ifeq ($(ENABLE_VENDOR_RIL_SERVICE), true)
 PRODUCT_PACKAGES += \
     MssiFrameworkTelephonyOverlay \
-    MssiTelephonyOverlay
+    MssiTelephonyOverlay \
+    MtkIwlanService
 
 ifeq (,$(filter $(TARGET_BOARD_PLATFORM),$(MTK_NON_5G_PLATFORMS)))
 PRODUCT_PACKAGES += \

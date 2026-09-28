@@ -1,0 +1,27 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "MtkIwlanService",
+
+    srcs: [
+        "src/**/*.aidl",
+        "src/**/*.java",
+    ],
+    aidl: {
+        local_include_dirs: ["src"],
+    },
+
+    libs: ["telephony-common"],
+
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+    system_ext_specific: true,
+
+    optimize: {
+        enabled: false,
+    },
+}

@@ -35,11 +35,13 @@
         <item>"NR_SA_MMWAVE:2097152,6291456,16777216,512000,2097152,8388608"</item>
     </string-array>
 
-    <!-- IWLAN data service class name to bind to by default. If none is specified in an overlay, an
-         empty string is passed in -->
-    <string name="config_wlan_data_service_class" translatable="false">com.mediatek.internal.telephony.data.IwlanDataService</string>
-
-    <!-- IWLAN network service class name to bind to by default. If none is specified in an overlay,
-         an empty string is passed in -->
-    <string name="config_wlan_network_service_class" translatable="false">com.mediatek.internal.telephony.IWlanNetworkService</string>
+    <!-- IWLAN services from MtkIwlanService. The modem does ePDG and IMS over Wi-Fi itself;
+         these report the resulting WLAN registration and IMS transport to the framework so
+         Wi-Fi calls work with no cellular service (e.g. airplane mode + Wi-Fi). -->
+    <string name="config_wlan_data_service_package" translatable="false">org.lineageos.mediatek.iwlan</string>
+    <string name="config_wlan_data_service_class" translatable="false">org.lineageos.mediatek.iwlan.IwlanDataService</string>
+    <string name="config_wlan_network_service_package" translatable="false">org.lineageos.mediatek.iwlan</string>
+    <string name="config_wlan_network_service_class" translatable="false">org.lineageos.mediatek.iwlan.IwlanNetworkService</string>
+    <string name="config_qualified_networks_service_package" translatable="false">org.lineageos.mediatek.iwlan</string>
+    <string name="config_qualified_networks_service_class" translatable="false">org.lineageos.mediatek.iwlan.IwlanQualifiedNetworksService</string>
 </resources>
