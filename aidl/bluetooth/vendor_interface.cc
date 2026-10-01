@@ -274,7 +274,11 @@ void VendorInterface::Close() {
     }
 
     if (lib_interface_ != nullptr) {
-        lib_interface_->op(BT_VND_OP_USERIAL_CLOSE, nullptr);
+        // MediaTek libbt-vendor reads a byte from the argument: 1 when the
+        // device is shutting down, 0 for a regular Bluetooth off.
+        char shutdown[PROPERTY_VALUE_MAX];
+        uint8_t is_shutdown = property_get("sys.shutdown.requested", shutdown, nullptr) > 0;
+        lib_interface_->op(BT_VND_OP_USERIAL_CLOSE, &is_shutdown);
 
         int power_state = BT_VND_PWR_OFF;
         lib_interface_->op(BT_VND_OP_POWER_CTRL, &power_state);
